@@ -1,0 +1,17 @@
+# Multi-Client HTTP/JSON Chat Server — Requirements
+# Network Programming Lab Project
+#
+# NOTE: The backend uses only the Python standard library (socket, threading, json, datetime).
+# No third-party packages (Flask, Django, FastAPI, etc.) are required or permitted per project spec.
+#
+# Frontend: HTML5, CSS3, Vanilla JavaScript (runs in browser — no install needed).
+
+# Python version requirement
+python>=3.10
+
+# Standard library modules used (no pip install needed):
+#   socket      — TCP network communication
+#   threading   — Multi-client concurrency
+#   json        — Request/response body serialization
+#   datetime    — Message timestamps
+#   sys         — Interpreter exit / version info

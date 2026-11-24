@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Server | Multi-Client</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="app-logo">💬</div>
+                <h2>Join Chat</h2>
+            </div>
+            <p class="modal-subtitle">Enter your username to join the conversation</p>
+            <div class="input-group">
+                <label for="username-input">Username</label>
+                <input type="text" id="username-input" placeholder="e.g. Alice" maxlength="20" autocomplete="off">
+            </div>
+            <div id="login-error" class="error-msg"></div>
+            <button id="join-btn" class="btn-primary btn-block">Join Chat</button>
+            <p class="modal-footer-text">Server: <span id="server-display">localhost:8080</span></p>
+        </div>
+    </div>
+
+    <!-- Main Chat Interface -->
+    <div id="chat-app" class="chat-app" style="display: none;">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="header-left">
+                <div class="back-btn" onclick="showLogin()">←</div>
+                <div class="app-title">Chat Room</div>
+            </div>
+            <div class="status-indicator" id="status-indicator">
+                <span class="status-dot" id="status-dot"></span>
+                <span id="status-text">Online</span>
+            </div>
+            <div class="user-count" id="user-count">
+                <span id="users-count">0</span> online
+            </div>
+        </header>
+
+        <!-- Messages Area -->
+        <div class="chat-container">
+            <div id="messages-area" class="messages-area">
+                <!-- Empty state -->
+                <div id="empty-state" class="empty-state">
+                    <div class="empty-icon">💭</div>
+                    <h3>No messages yet</h3>
+                    <p>Start the conversation by sending your first message</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users Sidebar (desktop only) -->
+        <aside id="users-sidebar" class="users-sidebar">
+            <div class="sidebar-header">
+                <h3>Active Users</h3>
+                <span id="users-count-badge">0</span>
+            </div>
+            <ul id="users-list">
+            </ul>
+        </aside>
+
+        <!-- Bottom Input Bar -->
+        <footer class="input-bar">
+            <form id="message-form">
+                <div class="input-wrapper">
+                    <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" maxlength="500">
+                    <button type="submit" id="send-btn" class="btn-send">Send</button>
+                </div>
+            </form>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
